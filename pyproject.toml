@@ -1,16 +1,15 @@
 [project]
 name = "snusbase.py"
-version = "1.0.2"
-description = "an un-official async wrapper for the Snusbase API"
+version = "1.0.3"
+description = "an unofficial async wrapper for the Snusbase API"
 readme = "README.md"
 requires-python = ">=3.7"
-license = { file = "LICENSE.txt" }
+license = { file = "LICENSE" }
 keywords = ["snusbase", "osint"]
 authors = [{ name = "igna", email = "igna@shiro.wtf" }]
-maintainers = [{ name = "igna", email = "igna@shiro.wtf" }]
 
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries",
     "License :: OSI Approved :: MIT License",
