@@ -13,19 +13,18 @@ jobs:
       id-token: write
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: ${{ github.event.release.tag_name }}
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.release.tag_name }}
 
-    - uses: actions/setup-python@v4
-      with:
-        python-version: 3.x
-        cache: pip
-    - run: |
-        pip install --upgrade pip
-        pip install build
-    - run: python -m build
-
-    - uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        verbose: true
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+          cache: pip
+      - run: |
+          pip install --upgrade pip
+          pip install build
+      - run: python -m build
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          verbose: true
