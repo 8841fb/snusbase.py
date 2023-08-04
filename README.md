@@ -6,7 +6,7 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/snusbase.py?style=flat-square&label=PyPI%20package%20version)](https://semver.org)
 [![PyPI - Status](https://img.shields.io/pypi/status/snusbase.py?style=flat-square&&label=PyPI%20Status)](https://pypi.python.org/pypi/snusbase.py)
 
-`snusbase.py` is an unofficial asynchronous Python wrapper for the Snusbase API, designed to simplify and enhance interactions with Snusbase's services. This wrapper offers efficiency, ease of use, and type hints for a seamless experience.
+> `snusbase.py` is an unofficial asynchronous Python wrapper for the [Snusbase](https://snusbase.com/) API.
 
 ## Features
 
