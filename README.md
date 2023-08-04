@@ -38,6 +38,11 @@ async def main():
 asyncio.run(main())
 ```
 
+## TODO:
+
+-   [ ] Make documentation.
+-   [ ] Proper error handling.
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
