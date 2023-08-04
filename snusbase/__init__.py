@@ -9,4 +9,4 @@ __title__ = "snusbase.py"
 __version__ = "1.0.3"
 __license__ = "MIT"
 
-from .api import *
+from .__main__ import *
