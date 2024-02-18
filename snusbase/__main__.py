@@ -1,5 +1,6 @@
 from httpx import AsyncClient
 
+
 class SnusbaseClient:
     """A class for interacting with the Snusbase API."""
 
