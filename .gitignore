@@ -1,5 +1,5 @@
 .vscode/
-.ruff-cache/
+.ruff_cache/
 
 .venv/
 __pycache__/
