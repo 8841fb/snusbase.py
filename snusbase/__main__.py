@@ -20,7 +20,7 @@ class SnusbaseClient:
         }
         self.session = session or AsyncClient(headers=self.headers, timeout=30)
 
-    async def _request(
+    async def request(
         self, method: str, endpoint: str, params: dict = None, data: dict = None
     ) -> dict:
         """
@@ -55,7 +55,7 @@ class SnusbaseClient:
         """
         endpoint = "/data/search"
         data = {"terms": [term], "types": [search_type]}
-        return await self._request("POST", endpoint, data=data)
+        return await self.request("POST", endpoint, data=data)
 
     async def hash_lookup(self, _hash: str) -> dict:
         """
@@ -72,7 +72,7 @@ class SnusbaseClient:
             "terms": [_hash],
             "types": ["hash"],
         }
-        return await self._request("POST", endpoint, data=data)
+        return await self.request("POST", endpoint, data=data)
 
     async def ip_lookup(self, ip: str) -> dict:
         """
@@ -88,7 +88,7 @@ class SnusbaseClient:
         data = {
             "terms": [ip],
         }
-        return await self._request("POST", endpoint, data=data)
+        return await self.request("POST", endpoint, data=data)
 
     async def search_by_username(self, username: str) -> dict:
         """
