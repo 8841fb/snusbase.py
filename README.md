@@ -41,8 +41,6 @@ asyncio.run(main())
 ## TODO:
 
 -   [ ] Make documentation.
--   [ ] Proper error handling.
--   [ ] Many improvements (v1.0.4)
 
 ## License
 
