@@ -1,27 +1,26 @@
-import httpx
-import orjson
-
+from httpx import AsyncClient
 
 class SnusbaseClient:
     """A class for interacting with the Snusbase API."""
 
-    def __init__(self, api_key: str) -> None:
+    def __init__(self, api_key: str, session: AsyncClient = None):
         """
         Initialize the SnusbaseClient instance.
 
         Args:
             api_key (str): The API key for authentication.
+            session (AsyncClient, optional): An HTTP client session to use for requests.
         """
         self.api_key = api_key
-        self.base_url = "https://api.snusbase.com"
+        self.base_url = "https://api-experimental.snusbase.com"
         self.headers = {
             "Auth": self.api_key,
             "Content-Type": "application/json",
         }
-        self.session = httpx.AsyncClient(headers=self.headers, timeout=30)
+        self.session = session or AsyncClient(headers=self.headers, timeout=30)
 
     async def _request(
-        self, method: str, endpoint: str, params=None, data=None
+        self, method: str, endpoint: str, params: dict = None, data: dict = None
     ) -> dict:
         """
         Send a request to the Snusbase API.
@@ -36,11 +35,11 @@ class SnusbaseClient:
             dict: The response data as a dictionary.
 
         Raises:
-            aiohttp.ClientError: If there is an error in the request.
+            HTTPError: If the request fails.
         """
         url = f"{self.base_url}{endpoint}"
         request = await self.session.request(method, url, params=params, json=data)
-        return orjson.loads(request.content)
+        return request.json()
 
     async def search(self, term: str, search_type: str) -> dict:
         """
