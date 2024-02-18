@@ -1,12 +1,12 @@
 [project]
 name = "snusbase.py"
-version = "1.0.3"
+version = "1.0.4"
 description = "an unofficial async wrapper for the Snusbase API"
 readme = "README.md"
 requires-python = ">=3.7"
 license = { file = "LICENSE" }
 keywords = ["snusbase", "osint"]
-authors = [{ name = "igna", email = "igna@shiro.wtf" }]
+authors = [{ name = "igna", email = "igna@incel.email" }]
 
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -30,8 +30,8 @@ test = ["coverage"]
 
 [project.urls]
 "Homepage" = "https://snusbase.com"
-"Bug Reports" = "https://github.com/obstructive/snusbase.py/issues"
-"Source" = "https://github.com/obstructive/snusbase.py"
+"Bug Reports" = "https://github.com/8841fb/snusbase.py/issues"
+"Source" = "https://github.com/8841fb/snusbase.py"
 
 
 [project.scripts]
