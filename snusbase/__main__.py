@@ -18,7 +18,7 @@ class SnusbaseClient:
             "Auth": self.api_key,
             "Content-Type": "application/json",
         }
-        self.session = session or AsyncClient(headers=self.headers, timeout=30)
+        self.session = session or AsyncClient(headers=self.headers, timeout=15)
 
     async def request(
         self, method: str, endpoint: str, params: dict = None, data: dict = None
@@ -27,13 +27,13 @@ class SnusbaseClient:
         Send a request to the Snusbase API.
 
         Args:
-            method (str): The HTTP method for the request (e.g., 'GET', 'POST').
-            endpoint (str): The API endpoint to access.
-            params (dict, optional): Query parameters for the request.
-            data (dict, optional): JSON data for the request payload.
+            method (str): The HTTP method to use for the request.
+            endpoint (str): The endpoint to send the request to.
+            params (dict, optional): The query parameters to include in the request.
+            data (dict, optional): The JSON data to include in the request.
 
         Returns:
-            dict: The response data as a dictionary.
+            dict: The response data from the request.
 
         Raises:
             HTTPError: If the request fails.
@@ -48,8 +48,8 @@ class SnusbaseClient:
 
         Args:
             term (str): The term to search for.
-            search_type (str): The type of search to perform.
-            wildcard (bool, optional): Whether to use wildcard search.
+            search_type (str): The type of data to search for.
+            wildcard (bool, optional): Whether to use a wildcard search.
 
         Returns:
             dict: The response data containing the search results.
@@ -83,7 +83,7 @@ class SnusbaseClient:
             ip (str): The IP address to lookup.
 
         Returns:
-            dict: The response data containing the IP address lookup results.
+            dict: The response data containing the IP lookup results.
         """
         endpoint = "/tools/ip-whois"
         data = {
@@ -91,74 +91,80 @@ class SnusbaseClient:
         }
         return await self.request("POST", endpoint, data=data)
 
-    async def search_by_username(self, username: str) -> dict:
+    async def search_by_username(self, username: str, wildcard: bool = False) -> dict:
         """
         Search Snusbase for data related to a username.
 
         Args:
             username (str): The username to search for.
+            wildcard (bool, optional): Whether to use a wildcard search.
 
         Returns:
             dict: The response data containing the search results.
         """
-        return await self.search(username, "username")
+        return await self.search(username, "username", wildcard)
 
-    async def search_by_password(self, password: str) -> dict:
+    async def search_by_password(self, password: str, wildcard: bool = False) -> dict:
         """
         Search Snusbase for data related to a password.
 
         Args:
             password (str): The password to search for.
+            wildcard (bool, optional): Whether to use a wildcard search.
 
         Returns:
             dict: The response data containing the search results.
         """
-        return await self.search(password, "password")
+        return await self.search(password, "password", wildcard)
 
-    async def search_by_email(self, email: str) -> dict:
+    async def search_by_email(self, email: str, wildcard: bool = False) -> dict:
         """
         Search Snusbase for data related to an email address.
 
         Args:
             email (str): The email address to search for.
+            wildcard (bool, optional): Whether to use a wildcard search.
 
         Returns:
             dict: The response data containing the search results.
         """
-        return await self.search(email, "email")
+        return await self.search(email, "email", wildcard)
 
-    async def search_by_ip(self, ip: str) -> dict:
+    async def search_by_ip(self, ip: str, wildcard: bool = False) -> dict:
         """
         Search Snusbase for data related to an IP address.
 
         Args:
             ip (str): The IP address to search for.
+            wildcard (bool, optional): Whether to use a wildcard search.
 
         Returns:
             dict: The response data containing the search results.
         """
-        return await self.search(ip, "lastip")
+        return await self.search(ip, "lastip", wildcard)
 
-    async def search_by_name(self, name: str) -> dict:
+    async def search_by_name(self, name: str, wildcard: bool = False) -> dict:
         """
         Search Snusbase for data related to a name.
 
         Args:
             name (str): The name to search for.
+            wildcard (bool, optional): Whether to use a wildcard search.
 
         Returns:
             dict: The response data containing the search results.
         """
-        return await self.search(name, "name")
+        return await self.search(name, "name", wildcard)
 
-    async def search_by_hash(self, _hash: str) -> dict:
+    async def search_by_hash(self, _hash: str, wildcard: bool = False) -> dict:
         """
         Search Snusbase for data related to a hash.
 
         Args:
             hash (str): The hash to search for.
+            wildcard (bool, optional): Whether to use a wildcard search.
 
         Returns:
             dict: The response data containing the search results.
         """
-        return await self.search(_hash, "hash")
+        return await self.search(_hash, "hash", wildcard)
