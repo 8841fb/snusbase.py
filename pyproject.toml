@@ -1,6 +1,6 @@
 [project]
 name = "snusbase.py"
-version = "1.0.5"
+version = "1.0.6"
 description = "an unofficial async wrapper for the Snusbase API"
 readme = "README.md"
 requires-python = ">=3.7"
