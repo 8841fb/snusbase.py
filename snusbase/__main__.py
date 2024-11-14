@@ -13,7 +13,7 @@ class SnusbaseClient:
             session (AsyncClient, optional): An HTTP client session to use for requests.
         """
         self.api_key = api_key
-        self.base_url = "https://api-experimental.snusbase.com"
+        self.base_url = "https://api.snusbase.com"
         self.headers = {
             "Auth": self.api_key,
             "Content-Type": "application/json",
